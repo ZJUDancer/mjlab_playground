@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "mjlab[cu128]",
+    "mujoco==3.6.0",
     "torch>=2.7.0,<2.10.0",
 ]
 
@@ -19,7 +20,6 @@ warp-lang = { index = "nvidia", marker = "sys_platform != 'darwin'" }
 torch = [
   { index = "pytorch-cu128", marker = "sys_platform != 'darwin'" },
 ]
-mujoco = { index = "mujoco" }
 mujoco-warp = { git = "https://github.com/google-deepmind/mujoco_warp", rev = "875c4caf06d71b12b2036c327e7a07ce08a78b9a" }
 
 [[tool.uv.index]]
@@ -35,14 +35,8 @@ name = "pytorch-cu128"
 url = "https://download.pytorch.org/whl/cu128"
 explicit = true
 
-[[tool.uv.index]]
-name = "mujoco"
-url = "https://py.mujoco.org"
-explicit = true
-
-# The nightly index (py.mujoco.org) only has dev builds.
 [tool.uv]
-override-dependencies = ["mujoco>=3.6.0.dev0"]
+no-sources-package = ["mujoco"]
 
 [tool.ruff]
 indent-width = 2
