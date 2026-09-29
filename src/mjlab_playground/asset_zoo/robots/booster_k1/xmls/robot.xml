@@ -342,6 +342,7 @@
     <framepos name="torso_pos" objtype="site" objname="torso"/><!-- Used for ground-truth perception of robot position.-->
 
     <gyro name="torso_gyro" site="torso" />
+    <velocimeter name="imu_lin_vel" site="torso"/>
     <accelerometer name="torso_acc" site="torso"/>
 
     <jointpos name="q_hj1" joint="AAHead_yaw"/>
