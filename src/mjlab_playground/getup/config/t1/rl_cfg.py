@@ -1,5 +1,7 @@
 """RL configuration for Booster T1 getup task."""
 
+import os
+
 from mjlab.rl import (
   RslRlModelCfg,
   RslRlOnPolicyRunnerCfg,
@@ -40,7 +42,7 @@ def booster_t1_getup_ppo_runner_cfg() -> RslRlOnPolicyRunnerCfg:
       max_grad_norm=1.0,
     ),
     experiment_name="t1_getup",
-    wandb_project="mjlab_playground",
+    wandb_project=os.environ.get("WANDB_PROJECT", "mjlab_playground"),
     save_interval=50,
     num_steps_per_env=24,
     max_iterations=3_000,

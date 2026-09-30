@@ -1,5 +1,7 @@
 """RL configuration for Booster k1 getup task."""
 
+import os
+
 from mjlab.rl import (
   RslRlModelCfg,
   RslRlOnPolicyRunnerCfg,
@@ -40,8 +42,8 @@ def booster_k1_getup_ppo_runner_cfg() -> RslRlOnPolicyRunnerCfg:
       max_grad_norm=1.0,
     ),
     experiment_name="k1_getup",
-    wandb_project="mjlab_playground",
+    wandb_project=os.environ.get("WANDB_PROJECT", "mjlab_playground"),
     save_interval=200,
     num_steps_per_env=24,
-    max_iterations=3_000,
+    max_iterations=5_000,
   )
