@@ -1196,6 +1196,7 @@ source = { editable = "." }
 dependencies = [
     { name = "mjlab", extra = ["cu128"] },
     { name = "mujoco" },
+    { name = "onnx" },
     { name = "torch", version = "2.9.1", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin'" },
     { name = "torch", version = "2.9.1+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "sys_platform != 'darwin'" },
 ]
@@ -1212,6 +1213,7 @@ dev = [
 requires-dist = [
     { name = "mjlab", extras = ["cu128"], git = "https://github.com/mujocolab/mjlab?rev=f7fdb163b590e980865e59a5633ff5e1143553bd" },
     { name = "mujoco", specifier = "==3.6.0" },
+    { name = "onnx", specifier = "==1.21.0" },
     { name = "torch", marker = "sys_platform != 'darwin'", specifier = ">=2.7.0,<2.10.0", index = "https://download.pytorch.org/whl/cu128" },
     { name = "torch", marker = "sys_platform == 'darwin'", specifier = ">=2.7.0,<2.10.0" },
 ]
