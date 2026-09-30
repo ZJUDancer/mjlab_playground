@@ -27,9 +27,12 @@ def energy_termination(
   """
   asset: Entity = env.scene[asset_cfg.name]
   power = torch.sum(
+    # torch.abs(
+    #   asset.data.actuator_force[:, asset_cfg.actuator_ids]
+    #   * asset.data.joint_vel[:, asset_cfg.joint_ids]
+    # ),
     torch.abs(
-      asset.data.actuator_force[:, asset_cfg.actuator_ids]
-      * asset.data.joint_vel[:, asset_cfg.joint_ids]
+      torch.abs(asset.data.qfrc_actuator * asset.data.joint_vel),
     ),
     dim=-1,
   )
